@@ -1,0 +1,52 @@
+<?php echo $this->addCss('Library/css/gewaesser/hinzufuegen.css');
+	
+?>
+<form action="./<?= $this->controller . DIRECTORY_SEPARATOR . $this->action ?>" method="post" >
+	<table id="hinzufuegen-table" class="table table-form">
+		<thead>
+			<tr class="row heading">
+				<th class="table-form-heading border" colspan="2" >Gewässer hinzufügen</th>
+				<th class="table-form-heading border" ></th>
+			</tr>
+		</thead>
+		<tfoot>
+			<tr class="row footer">
+				<td class="table-form-footer border" ></td>
+				<td class="table-form-footer border" ></td>
+				<td class="table-form-footer border" ></td>
+			</tr>
+		</tfoot>
+		<tbody>
+
+			<tr class="row">
+				<td class="table-form-data label" ><label for="bezeichnung" >Name</label></td>
+				<td class="table-form-data feld" ><input required type="text" name="bezeichnung" class="form-feld" ></td>
+				<td class="table-form-data info" ></td>
+			</tr>
+
+			<tr class="row">
+				<td class="table-form-data label" ><label for="typ" >Test</label></td>
+				<td class="table-form-data feld" >
+
+					<select name="typ" class="form-feld" >
+						<?php foreach($this->gewaessertypen as $key => $val): ?>
+							<option value="<?= $val->id ?>" ><?= $val->bezeichnung ?></option>
+						<?php endforeach; ?>
+					</select>
+				</td>
+				<td class="table-form-data info" ></td>
+			</tr>
+
+			<tr class="row">
+				<td class="table-form-data label" ></td>
+				<td class="table-form-data feld" ><input type="submit" name="submit" class="form-feld submit" value="Anlegen" ></td>
+				<td class="table-form-data info" ></td>
+			</tr>
+
+			<tr class="row">
+				<td class="table-form-data" colspan="3" >
+			</tr>
+
+		</tbody>
+	</table>
+</form>

@@ -1,0 +1,84 @@
+<html>	
+	<head>
+		<link rel="icon" type="image/vnd.microsoft.icon" href="./Library/images/favicon.ico">
+		<title>MVC</title>
+		<base href="/<?= DIR_NAME_ROOT . "/" ?>">
+		<?php
+			echo $this->addCss("./Library/css/layout.css"); 
+			echo $this->addCss("./Library/css/theme.jui.css");
+			echo $this->addCss("./Library/css/jquery-ui.min.css"); 
+			if($this->isMobile){
+//				echo $this->addCss("./Library/css/jquery.mobile-1.4.5.min.css"); 
+			}
+			echo $this->addCss("./Library/css/filer/jquery.filer.css");
+			echo $this->addCss("./Library/css/filer/assets/fonts/jquery.filer-icons/jquery-filer.css"); 
+			echo $this->addCss("./Library/css/filer/themes/jquery.filer-dragdropbox-theme.css"); 
+			echo $this->addScript("./Library/js/jquery-2.2.2.min.js");
+			echo $this->addScript("./Library/js/jquery-ui.min.js");
+			if($this->isMobile){
+				echo $this->addScript("./Library/js/jquery.mobile.custom.min.js"); 
+			}
+			echo $this->addScript("./Library/js/jquery.tablesorter.js");
+			echo $this->addScript("./Library/js/filer/jquery.filer.min.js");
+			echo $this->addScript("./Library/js/main.js");
+			echo $this->addScript("./Library/js/layout.js");
+		?>
+		
+		<?= ($this->isMobile) ? '<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">' : '' ?>
+	</head>
+	<body class="<?php echo ($this->isMobile) ? "mobile" : "" ?>">
+		<section id="header">
+			<div id="header-center" class="segment">
+				<div id="header-top" class="bar" >
+					Fangbuch v1.0
+					<?php if($this->isMobile): ?><img class="mobile-menu-button" src="Library/images/menu-button.png" ><?php endif; ?>
+				</div>
+				<?php if(!$this->isMobile): ?>
+				<div id="header-bottom" >
+					<div class="left-float" ></div>
+					<div class="right-float" ></div>
+				</div>
+				<?php endif; ?>
+			</div>
+		</section>
+
+		<section id="main" >
+			<?php // if(!$this->isMobile): ?>
+			<div id="navigation" class="segment" >
+				<div id="navigation-top" class="bar" >Navigation</div>
+				<div id="navigation-content" >
+					<ul>
+						<li class="nav-entry" ><a href="<?= $this->route("fangliste", [], true) ?>" >Fangliste</a></li>
+						<li class="nav-entry" ><a href="<?= $this->route("gewaesser", [], true) ?>" >Gewässer</a></li>
+					</ul>
+				</div>
+			</div>
+			<?php // endif; ?>
+			
+			<div id="content" class="segment" >
+				<div id="content-top" class="bar" >
+					<div class="float-left" ><?= $this->title ?></div>
+					<div class="float-right" ><?= $this->zurueck() ?></div>
+				</div>
+				<div id="content-content" >
+					<?php echo $this->getContent(); ?>
+				</div>
+			</div>
+		</section>
+	</body>
+	
+	<section id="dialog-wrapper" >
+		<div id="dialog-confirm" title="">
+			<p>
+				<span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>
+				<span class="message"></span>
+			</p>
+		</div>
+	</section>
+	
+	<section id="selectmenu-wrapper" >
+		
+	</section>
+	
+	
+</html>

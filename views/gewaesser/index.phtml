@@ -1,0 +1,38 @@
+<?php 
+	echo $this->addCss('Library/css/gewaesser/index.css');
+	echo $this->addScript('Library/js/gewaesser/index.js');
+	
+?>
+
+<table id="gewaesser" class="table sort">
+	<thead>
+		<tr class="row heading">
+			<th class="table-heading border" >Gewässer</th>
+			<th class="table-heading border" >Typ</th>
+			<th class="table-heading border noSort options" >
+				<a class="option" href="<?= $this->route("hinzufuegen") ?>">Gewässer hinzufügen</a>
+			</th>
+		</tr>
+	</thead>
+	<tfoot>
+		<tr class="row footer">
+			<td class="table-footer border" ></td>
+			<td class="table-footer border" ></td>
+			<td class="table-footer border" ></td>
+		</tr>
+	</tfoot>
+	<tbody>
+		<?php foreach($this->gewaesser as $key => $obj): ?>
+		<tr class="row">
+			<td class="table-data border" ><?= $obj->bezeichnung; ?></td>
+			<td class="table-data border" ><?= $this->typ[$obj->typ]; ?></td>
+			<td class="table-data border options" >
+				<a class="option" href="<?= $this->route("info", ['id'=>$obj->id]) ?>" >ansehen</a>
+				<a class="option" href="<?= $this->route("bearbeiten", ['id'=>$obj->id]) ?>" >bearbeiten</a>
+				<a class="option loeschen" href="<?= $this->route("loeschen", ['id'=>$obj->id]) ?>" >löschen</a>
+			</td>
+		</tr>
+		<?php endforeach; ?>
+	</tbody>
+</table>
+

@@ -1,0 +1,156 @@
+<?php 
+	
+	echo $this->addCss('Library/css/galery/jquery.galery.css');
+	echo $this->addCss('Library/css/fangliste/details.css');
+	
+	echo $this->addScript('Library/js/galery/jquery.galery.js');
+	echo $this->addScript('Library/js/fangliste/details.js');
+?>
+
+<?php if(!$this->isMobile): ?>
+<table id="template-table">
+	<tr>
+		<td class="spalte1">
+			<div id="bildergalerie">
+				<?php foreach($this->images as $key => $val): ?>
+					<img src="<?= $val->pfad ?>" data-name="<?= $val->name ?>" >
+				<?php endforeach; ?>
+			</div>
+		</td>
+		
+		<td class="spalte2">
+			<table id="details-table" class="table table-details">
+				<thead>
+					<tr class="row heading">
+						<th class="table-details-heading" ></th>
+						<th class="table-details-heading" ></th>
+						<th class="table-details-heading" ></th>
+					</tr>
+				</thead>
+				<tfoot>
+					<tr class="row footer">
+						<td class="table-details-footer" ></td>
+						<td class="table-details-footer" ></td>
+					</tr>
+				</tfoot>
+				<tbody>
+
+					<tr class="row">
+						<td class="table-details-data label" ><span class="colon" >Datum</span></td>
+						<td class="table-details-data feld" ><?php $date = new DateTime($this->fang->datum); echo date('d-m-Y', $date->getTimestamp()); ?></td>
+					</tr>
+
+					<tr class="row">
+						<td class="table-details-data label" ><span class="colon" >Uhrzeit</span></td>
+						<td class="table-details-data feld" ><?php $time = new DateTime($this->fang->datum); echo date('H:i', $time->getTimestamp()); ?></td>
+						<!--<td class="table-form-data info" ></td>-->
+					</tr>
+
+					<tr class="row">
+						<td class="table-details-data label" ><span class="colon" >Gewässer</span></td>
+						<td class="table-details-data feld" ><?= $this->gewaesser->bezeichnung ?></td>
+					</tr>
+
+					<tr class="row">
+						<td class="table-details-data label" ><span class="colon" >Fischart</span></td>
+						<td class="table-details-data feld" ><?= $this->fischart->name ?></td>
+					</tr>
+
+					<tr class="row">
+						<td class="table-details-data label" ><span class="colon" >Länge</span></td>
+						<td class="table-details-data feld" ><?= ((int)$this->fang->laenge >= 100) ? number_format(((int)$this->fang->laenge / 100), 2)." m" : (int)$this->fang->laenge." cm" ?></td>
+						<!--<td class="table-form-data info" ></td>-->
+					</tr>
+
+					<tr class="row">
+						<td class="table-details-data label" ><span class="colon" >Gewicht</span></td>
+						<td class="table-details-data feld" ><?= ((int)$this->fang->gewicht >= 1000) ? number_format(((int)$this->fang->gewicht / 1000), 2)." kg" : (int)$this->fang->gewicht." g" ?></td>
+						<!--<td class="table-form-data info" ></td>-->
+					</tr>
+
+					<tr class="row">
+						<td class="table-details-data label" ><span class="colon" >Köder</span></td>
+						<td class="table-details-data feld" ><?= $this->koeder->name ?></td>
+						<!--<td class="table-form-data info" ></td>-->
+					</tr>
+
+					<tr class="row">
+						<td class="table-details-data" colspan="3" >
+					</tr>
+
+				</tbody>
+			</table>
+		</td>
+	</tr>
+</table>
+<?php else: ?>
+<div id="bildergalerie">
+	<?php foreach($this->images as $key => $val): ?>
+		<img src="<?= $val->pfad ?>" data-name="<?= $val->name ?>" >
+	<?php endforeach; ?>
+</div>
+<table id="details-table" class="table table-details">
+	<thead>
+		<tr class="row heading">
+			<th class="table-details-heading" ></th>
+			<th class="table-details-heading" ></th>
+			<th class="table-details-heading" ></th>
+		</tr>
+	</thead>
+	<tfoot>
+		<tr class="row footer">
+			<td class="table-details-footer" ></td>
+			<td class="table-details-footer" ></td>
+		</tr>
+	</tfoot>
+	<tbody>
+
+		<tr class="row">
+			<td class="table-details-data label" ><span class="colon" >Datum</span></td>
+			<td class="table-details-data feld" ><?php $date = new DateTime($this->fang->datum); echo date('d-m-Y', $date->getTimestamp()); ?></td>
+		</tr>
+
+		<tr class="row">
+			<td class="table-details-data label" ><span class="colon" >Uhrzeit</span></td>
+			<td class="table-details-data feld" ><?php $time = new DateTime($this->fang->datum); echo date('H:i', $time->getTimestamp()); ?></td>
+			<!--<td class="table-form-data info" ></td>-->
+		</tr>
+
+		<tr class="row">
+			<td class="table-details-data label" ><span class="colon" >Gewässer</span></td>
+			<td class="table-details-data feld" ><?= $this->gewaesser->bezeichnung ?></td>
+		</tr>
+
+		<tr class="row">
+			<td class="table-details-data label" ><span class="colon" >Fischart</span></td>
+			<td class="table-details-data feld" ><?= $this->fischart->name ?></td>
+		</tr>
+
+		<tr class="row">
+			<td class="table-details-data label" ><span class="colon" >Länge</span></td>
+			<td class="table-details-data feld" ><?= ((int)$this->fang->laenge >= 100) ? number_format(((int)$this->fang->laenge / 100), 2)." m" : (int)$this->fang->laenge." cm" ?></td>
+			<!--<td class="table-form-data info" ></td>-->
+		</tr>
+
+		<tr class="row">
+			<td class="table-details-data label" ><span class="colon" >Gewicht</span></td>
+			<td class="table-details-data feld" ><?= ((int)$this->fang->gewicht >= 1000) ? number_format(((int)$this->fang->gewicht / 1000), 2)." kg" : (int)$this->fang->gewicht." g" ?></td>
+			<!--<td class="table-form-data info" ></td>-->
+		</tr>
+
+		<tr class="row">
+			<td class="table-details-data label" ><span class="colon" >Köder</span></td>
+			<td class="table-details-data feld" ><?= $this->koeder->name ?></td>
+			<!--<td class="table-form-data info" ></td>-->
+		</tr>
+
+		<tr class="row">
+			<td class="table-details-data" colspan="3" >
+		</tr>
+
+	</tbody>
+</table>
+<?php endif; ?>
+
+	
+	

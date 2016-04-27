@@ -1,0 +1,154 @@
+.g-galery *.hidden{
+	display: none!important;
+}
+
+.g-galery{
+	/*border: 2px solid #DDDDDD;*/
+    border-radius: 5px;
+}
+
+.g-image-container{
+	white-space: nowrap;
+    border: 1px solid #DDDDDD;
+    border-radius: 5px;
+    margin-top: 15px;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    overflow: hidden;
+    /* border-top: 2px solid #DDDDDD; */
+    /* overflow-x: scroll; */
+}
+
+.g-image-container .g-image-wrapper:first-child{
+	margin-left: 0px;
+}
+.g-image-container .g-image-wrapper:last-child{
+	margin-right: 0px;
+}
+.g-image-container .g-image-window{
+	width: 120px;
+	height: 100px;
+	overflow: hidden;
+	display: inline-block;
+	/*margin: 10px 10px 10px 10px;*/
+}
+
+.g-image-container .g-image{
+	/*height: 100%;*/
+	/*top: -10%;*/
+	position: relative;
+	display: inline-block;
+	background-size: cover ;
+	transition: transform 1s;
+	cursor: pointer;
+}
+.g-image-container .scroll-wrapper{
+	transition: all 0.2s;
+}
+.g-image-container .g-image-wrapper:hover .g-image{
+	transform: scale(1.15);
+}
+
+
+
+.g-preview{
+	width: 100%;
+	height: 300px;
+	overflow: hidden;
+	position: relative;
+	white-space: nowrap;
+	display: inline-block;
+}
+
+.g-preview .g-image{
+	/*transition: all 1s;*/
+}
+
+.g-preview-wrapper .g-navigate-prev{
+	width: 20%;
+	height: 100%;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	opacity: 0.3;
+	cursor: pointer;
+	z-index: 100;
+}
+
+.g-preview-wrapper .g-navigate-next{
+	width: 20%;
+	height: 100%;
+	position: absolute;
+	right: 0px;
+	top: 0px;
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	opacity: 0.3;
+	cursor: pointer;
+	z-index: 100;
+}
+
+.g-preview-wrapper .g-navigate-prev:hover, .g-preview-wrapper .g-navigate-next:hover{
+	opacity: 1;
+	transition: 0.5s all;
+}
+
+.g-preview .g-preview-scroll{
+	height: 100%;
+	position: relative;
+}
+
+.g-image-wrapper{
+	border-radius: 3px;
+    margin: 0px 5px 0px 5px;
+    padding: 10px 10px 10px 10px;
+    border: 1px solid #DDDDDD;
+	overflow: hidden;
+	position: relative;
+}
+
+.loading-layer{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+	background-color: #fff;
+	z-index: 2;
+	background-position: 50% 50%;
+	background-size: 25px 25px;
+	background-repeat: no-repeat;
+}
+
+.g-preview-wrapper{
+	padding: 10px;
+	border-radius: 5px;
+	border: 1px solid #DDDDDD;
+	display: inline-block;
+	width: 100%;
+	position: relative;
+	box-sizing: border-box;
+	white-space:nowrap;
+	overflow:hidden;
+}
+
+.container-wrapper{
+	padding: 10px;
+	border-radius: 5px;
+	border: 1px solid #DDDDDD;
+}
+
+.g-image-info{
+	width: 100%;
+	height: 20px;
+}
+
+
+@media screen and (max-width: 1200px){
+	.g-image-container{
+		overflow-x: scroll;
+	}
+}

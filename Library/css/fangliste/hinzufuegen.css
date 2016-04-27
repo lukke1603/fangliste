@@ -1,0 +1,18 @@
+#hinzufuegen-table {
+  width: 55%;
+  float: left; }
+
+#hinzufuegen-table .table-form-data.feld {
+  width: 70%; }
+
+#hinzufuegen-table .table-form-data.label {
+  width: 30%; }
+
+#hinzufuegen-table .table-form-data.info {
+  padding-left: 0px;
+  width: 40%;
+  vertical-align: top; }
+
+#fileupload {
+  float: left;
+  width: 45%; }

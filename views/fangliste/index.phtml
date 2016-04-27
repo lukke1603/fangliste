@@ -1,0 +1,47 @@
+<?php 
+	echo $this->addCss("./Library/css/fangliste/index.css");
+	echo $this->addScript("./Library/js/fangliste/index.js");
+?>
+
+
+<table id="fangliste" class="table sort">
+	<thead>
+		<tr class="row heading">
+			<th class="table-heading border" >Datum</th>
+			<?php if(!$this->isMobile): ?><th class="table-heading border" >Gewässer</th><?php endif; ?>
+			<th class="table-heading border" >Fischart</th>
+			<?php if(!$this->isMobile): ?><th class="table-heading border" >Länge</th><?php endif; ?>
+			<!--<th class="table-heading border" ></th>-->
+			<th class="table-heading border noSort options" >
+				<a class="option" href="<?= $this->route("hinzufuegen") ?>">Fang hinzufügen</a>
+			</th>
+		</tr>
+	</thead>
+	<tfoot>
+		<tr class="row footer">
+			<td class="table-footer border" ></td>
+			<?php if(!$this->isMobile): ?><td class="table-footer border" ></td><?php endif; ?>
+			<td class="table-footer border" ></td>
+			<!--<td class="table-footer border" ></td>-->
+			<?php if(!$this->isMobile): ?><td class="table-footer border" ></td><?php endif; ?>
+			<td class="table-footer border" ></td>
+		</tr>
+	</tfoot>
+	<tbody>
+		<?php foreach($this->faenge as $key => $obj): ?>
+		<tr class="row">
+			<td class="table-data border datum" ><?php $date=new DateTime($obj->datum); echo date('d-m-Y', $date->getTimestamp()); ?></td>
+			<?php if(!$this->isMobile): ?><td class="table-data border gewaesser" ><?= $this->gewaesserIndizes[$obj->gewaesser]; ?></td><?php endif; ?>
+			<td class="table-data border fischart" ><?= $this->fischartenIndizes[$obj->fischart]; ?></td>
+			<!--<td class="table-data border gewicht" ><?= $obj->gewicht; ?></td>-->
+			<?php if(!$this->isMobile): ?><td class="table-data border laenge" ><?= $obj->laenge; ?>cm</td><?php endif; ?>
+			<td class="table-data border options" >
+				<a class="option info" href="<?= $this->route("details", ['id'=>$obj->id]) ?>" >ansehen</a>
+				<?php if(!$this->isMobile): ?><a class="option bearbeiten" href="<?= $this->route("bearbeiten", ['id'=>$obj->id]) ?>" >bearbeiten</a><?php endif; ?>
+				<?php if(!$this->isMobile): ?><a class="option loeschen" href="<?= $this->route("loeschen", ['id'=>$obj->id]) ?>" >löschen</a><?php endif; ?>
+			</td>
+		</tr>
+		<?php endforeach; ?>
+	</tbody>
+</table>
+

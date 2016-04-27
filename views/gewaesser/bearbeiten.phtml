@@ -1,0 +1,56 @@
+<?php 
+	echo $this->addCss('Library/css/gewaesser/bearbeiten.css');
+?>
+<form action="./<?= $this->controller . DIRECTORY_SEPARATOR . $this->action ?>" method="post" >
+	<input type="hidden" name="id" value="<?= $this->gewaesser->id ?>" />
+	<input type="hidden" name="action" value="save" />
+	
+	<table id="bearbeiten-table" class="table table-form">
+		<thead>
+			<tr class="row heading">
+				<th class="table-form-heading border" colspan="2" ><?= $this->gewaesser->bezeichnung ?></th>
+				<th class="table-form-heading border" ></th>
+			</tr>
+		</thead>
+		<tfoot>
+			<tr class="row footer">
+				<td class="table-form-footer border" ></td>
+				<td class="table-form-footer border" ></td>
+				<td class="table-form-footer border" ></td>
+			</tr>
+		</tfoot>
+		<tbody>
+
+			<tr class="row">
+				<td class="table-form-data label" ><label for="bezeichnung" >Name</label></td>
+				<td class="table-form-data feld" ><input required type="text" name="bezeichnung" class="form-feld" data-regex="<?= $this->form->getRegex("zahl") ?>" value="<?= $this->gewaesser->bezeichnung ?>" ></td>
+				<td class="table-form-data info" ></td>
+			</tr>
+
+			<tr class="row">
+				<td class="table-form-data label" ><label for="typ" >Test</label></td>
+				<td class="table-form-data feld" >
+
+					<select name="typ" class="form-feld" value="<?php $this->gewaesser->typ ?>" >
+						<?php foreach($this->gewaessertypen as $key => $val): ?>
+							<option <?php echo ((int)$this->gewaesser->typ === (int)$val->id) ? "selected" : "" ?> value="<?= $val->id ?>" ><?= $val->bezeichnung ?></option>
+						<?php endforeach; ?>
+					</select>
+				</td>
+				<td class="table-form-data info" ></td>
+			</tr>
+
+			<tr class="row">
+				<td class="table-form-data label" ></td>
+				<td class="table-form-data feld" ><input type="submit" name="submit" class="form-feld submit" value="Speichern" ></td>
+				<td class="table-form-data info" ></td>
+			</tr>
+
+			<tr class="row">
+				<td class="table-form-data" colspan="3" >
+			</tr>
+
+		</tbody>
+	</table>
+</form>
+

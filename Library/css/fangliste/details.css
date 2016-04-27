@@ -1,0 +1,30 @@
+#bildergalerie {
+  width: 400px;
+  min-height: 1px;
+  /*float: left;*/
+  /*height: 500px;*/ }
+
+#details-table {
+  width: 60%;
+  float: left; }
+
+#template-table {
+  width: 100%;
+  vertical-align: top; }
+
+#template-table .spalte1 {
+  /*width: 40%;*/
+  vertical-align: top; }
+
+#template-table .spalte2 {
+  width: 60%;
+  vertical-align: top; }
+
+@media screen and (min-width: 100px) and (max-width: 600px) {
+  #bildergalerie {
+    width: 100%;
+    margin-bottom: 2em; } }
+@media screen and (min-width: 601px) and (max-width: 900px) {
+  #bildergalerie {
+    width: 100%;
+    margin-bottom: 2em; } }
